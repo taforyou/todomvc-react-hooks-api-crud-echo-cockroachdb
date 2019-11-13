@@ -8,7 +8,7 @@ RUN apk update \
 RUN apk add git
 WORKDIR /go
 COPY ./main.go ./main.go
-RUN go get -u github.com/lib/pq github.com/labstack/echo github.com/manyminds/api2go/jsonapi github.com/tidwall/gjson github.com/dgrijalva/jwt-go github.com/joho/godotenv cloud.google.com/go/profiler
+RUN go get -u github.com/lib/pq github.com/labstack/echo/...
 RUN GOOS=linux go build -ldflags="-s -w" -o ./bin/lvgo ./main.go
 
 FROM alpine:3.8
